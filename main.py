@@ -30,7 +30,7 @@ print(f"Weather: {weather}")
 
 # Send alert if hot or rainy
 if True:
-    subject = "⚠ Weather Alert"
+    subject = "Weather Alert"
     body = f"""
 Weather Alert for {CITY}
 
