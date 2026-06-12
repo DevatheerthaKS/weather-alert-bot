@@ -1,0 +1,31 @@
+name: Weather Alert Bot
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '30 2 * * *'
+
+jobs:
+  weather-alert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Requests
+        run: pip install requests
+
+      - name: Run Weather Alert
+        env:
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python main.py
