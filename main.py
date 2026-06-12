@@ -34,7 +34,7 @@ if True:
     body = f"""
 Weather Alert for {CITY}
 
-Temperature: {temperature}°C
+Temperature: {temperature} C
 Condition: {weather}
 
 Take necessary precautions.
